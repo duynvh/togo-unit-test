@@ -1,7 +1,3 @@
-# Manabie Togo
-
-Manabie Togo code challenge
-
 ## Features
 
 - Using DDD Pattern as:
@@ -20,17 +16,7 @@ Make sure you have Docker installed ([instructions](https://docs.docker.com/engi
 
 Make sure you have `make` installed for running the scripts.
 
-For Linux:
-
-```sh
-sudo apt install make
-```
-
-For MacOS:
-
-```sh
-brew install make
-```
+````
 
 <br/>
 
@@ -40,11 +26,11 @@ Using command bellow to build and run on Docker Compose
 
 ```sh
 make start
-```
+````
 
 - `Togo` app will available on `127.0.0.1:4000`
 - `Redis` will available on `127.0.0.1:6379`
-- `PostgreSQL` will available on `127.0.0.1:55432`
+- `PostgreSQL` will available on `127.0.0.1:5432`
 
 To stop the server
 
@@ -56,8 +42,6 @@ make stop
 
 ## Run Unit Tests
 
-Using command bellow to run unit tests
-
 ```sh
 make run-unit-test
 ```
@@ -66,15 +50,13 @@ make run-unit-test
 
 ## Run Integration Tests
 
-Make sure Togo server build and start successfully then use the command bellow to run integration tests.
-
 ```sh
 make run-integration-test
 ```
 
 <br/>
 
-# cURL samples
+# CURL samples
 
 Sign up:
 
@@ -82,9 +64,9 @@ Sign up:
 curl --location --request POST 'http://127.0.0.1:4000/auth/register' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "fullName": "Foo Name",
-    "username": "user_name",
-    "password": "a123456",
+    "fullName": "Duy Nguyen",
+    "username": "duynvh",
+    "password": "123456",
     "tasksPerDay": 10
 }'
 ```
@@ -95,8 +77,8 @@ Login:
 curl --location --request POST 'http://127.0.0.1:4000/auth/login' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "username": "user_name",
-    "password": "a123456"
+    "username": "duynvh",
+    "password": "123456"
 }'
 ```
 
@@ -125,7 +107,7 @@ curl --location --request POST 'http://127.0.0.1:4000/tasks' \
 --header 'Authorization: Bearer <token>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "content": "This is a task"
+    "content": "Demo 1"
 }'
 ```
 
@@ -146,7 +128,3 @@ curl --location --request PATCH 'http://127.0.0.1:4000/tasks/1' \
     "content": "text updated"
 }'
 ```
-
-# License
-
-MIT
